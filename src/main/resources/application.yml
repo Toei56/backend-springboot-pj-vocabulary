@@ -1,0 +1,14 @@
+server:
+  port: 1150
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eng
+    username: postgres
+    password: Tonpostgresql04
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    hibernate.ddl-auto: create-drop
