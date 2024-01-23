@@ -19,10 +19,6 @@ public class VocabularyServiceImp implements VocabularyService {
         this.vocabularyRepository = vocabularyRepository;
     }
 
-    private boolean checkSize() {
-        return vocabularyRepository.findAll().size() == 0; // = 0 = true
-    }
-
     @Override
     public List<Vocabulary> getAllVocabulary() {
         List<Vocabulary> vocabulary = vocabularyRepository.findAll();
@@ -65,6 +61,11 @@ public class VocabularyServiceImp implements VocabularyService {
         } catch (Exception ex) {
             throw new VocabularyNotFoundException(id);
         }
+    }
+
+    @Override
+    public Optional<Vocabulary> getVocabularyTopByEng(String eng) {
+        return vocabularyRepository.findTopByEng(eng);
     }
 
     @Override

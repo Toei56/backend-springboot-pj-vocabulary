@@ -40,7 +40,7 @@ public class VocabularyController {
     }
 
     @PutMapping("/{id}")
-    public Vocabulary editVocabulary(@Valid VocabularyRequest vocabularyRequest, BindingResult bindingResult,@PathVariable long id) {
+    public Vocabulary editVocabulary(@Valid VocabularyRequest vocabularyRequest, BindingResult bindingResult, @PathVariable long id) {
         if (bindingResult.hasErrors()) {
             bindingResult.getFieldErrors().forEach(fieldError -> {
                 throw new ValidationException(fieldError.getField() + " : " + fieldError.getDefaultMessage());

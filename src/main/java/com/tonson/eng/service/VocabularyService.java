@@ -4,6 +4,7 @@ import com.tonson.eng.Controller.request.VocabularyRequest;
 import com.tonson.eng.model.Vocabulary;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface VocabularyService {
 
@@ -14,6 +15,8 @@ public interface VocabularyService {
     Vocabulary updateVocabulary(VocabularyRequest vocabularyRequest, long id);
 
     void deleteVocabulary(long id);
+
+    Optional<Vocabulary> getVocabularyTopByEng(String eng);
 
     List<Vocabulary> getVocabularyByEng(String eng);
 
