@@ -1,32 +1,17 @@
 package com.tonson.eng.exception;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class ExceptionAdvice {
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    public static class ErrorResponse {
-
-        private LocalDateTime timestamp = LocalDateTime.now();
-
-        private int status;
-
-        private String error;
-    }
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponse> handlerVocabularyNotFound(VocabularyNotFoundException ex) {
@@ -42,6 +27,18 @@ public class ExceptionAdvice {
         errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
         errorResponse.setError(ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class ErrorResponse {
+
+        private LocalDateTime timestamp = LocalDateTime.now();
+
+        private int status;
+
+        private String error;
     }
 
 
