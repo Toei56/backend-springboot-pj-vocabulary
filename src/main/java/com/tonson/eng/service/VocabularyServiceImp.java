@@ -44,6 +44,7 @@ public class VocabularyServiceImp implements VocabularyService {
     }
 
     @Override
+//    @Transactional //หากมีข้อผิดพลาด (exception) ขึ้นขณะทำงานในกิจกรรมใด ๆ, การทำธุรกรรมนี้จะถูกยกเลิก (rollback) ทั้งหมด
     public Vocabulary updateVocabulary(VocabularyRequest vocabularyRequest, long id) {
         Optional<Vocabulary> vocabulary = vocabularyRepository.findById(id);
         if (vocabulary.isPresent()) {

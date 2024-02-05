@@ -11,4 +11,8 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
+  mvc:
+    view:
+      prefix: =/templates/
+      suffix: .html

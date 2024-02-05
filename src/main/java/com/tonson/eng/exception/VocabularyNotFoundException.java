@@ -11,6 +11,6 @@ public class VocabularyNotFoundException extends RuntimeException {
     }
 
     public VocabularyNotFoundException(long id) {
-        super("Could not find Vocabulary : " + id);
+        super("Could not find Vocabulary (ID : " + id + " )");
     }
 }

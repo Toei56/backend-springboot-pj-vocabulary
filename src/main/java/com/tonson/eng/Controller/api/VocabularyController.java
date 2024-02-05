@@ -2,11 +2,9 @@ package com.tonson.eng.Controller.api;
 
 import com.tonson.eng.Controller.request.VocabularyRequest;
 import com.tonson.eng.exception.ValidationException;
-import com.tonson.eng.exception.VocabularyNotFoundException;
 import com.tonson.eng.model.Vocabulary;
 import com.tonson.eng.service.VocabularyService;
 import jakarta.validation.Valid;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +38,7 @@ public class VocabularyController {
     }
 
     @PutMapping("/{id}")
-    public Vocabulary editVocabulary(@Valid VocabularyRequest vocabularyRequest, BindingResult bindingResult,@PathVariable long id) {
+    public Vocabulary editVocabulary(@Valid VocabularyRequest vocabularyRequest, BindingResult bindingResult, @PathVariable long id) {
         if (bindingResult.hasErrors()) {
             bindingResult.getFieldErrors().forEach(fieldError -> {
                 throw new ValidationException(fieldError.getField() + " : " + fieldError.getDefaultMessage());
