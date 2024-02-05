@@ -8,8 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class
-VocabularyRequest {
+public class VocabularyRequest {
 
     @NotEmpty(message = "must not be empty")
     private String eng;
