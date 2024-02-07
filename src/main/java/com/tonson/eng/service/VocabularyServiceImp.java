@@ -21,11 +21,11 @@ public class VocabularyServiceImp implements VocabularyService {
 
     @Override
     public List<Vocabulary> getAllVocabulary() {
-        List<Vocabulary> vocabulary = vocabularyRepository.findAll();
-        if (vocabulary.size() == 0) {
+        List<Vocabulary> vocabularies = vocabularyRepository.findAll(Sort.by(Sort.Direction.ASC, "eng"));
+        if (vocabularies.size() == 0) {
             throw new VocabularyNotFoundException();
         }
-        return vocabularyRepository.findAll(Sort.by(Sort.Direction.ASC, "eng"));
+        return vocabularies;
     }
 
     @Override
@@ -64,26 +64,26 @@ public class VocabularyServiceImp implements VocabularyService {
         }
     }
 
-    @Override
+    @Override //ใช้ทำ unit test
     public Optional<Vocabulary> getVocabularyTopByEng(String eng) {
         return vocabularyRepository.findTopByEng(eng);
     }
 
     @Override
     public List<Vocabulary> getVocabularyByEng(String eng) {
-        List<Vocabulary> vocabulary = vocabularyRepository.findByEng(eng);
-        if (vocabulary.size() == 0) {
+        List<Vocabulary> vocabularies = vocabularyRepository.findByEng(eng);
+        if (vocabularies.size() == 0) {
             throw new VocabularyNotFoundException(eng);
         }
-        return vocabularyRepository.findByEng(eng);
+        return vocabularies;
     }
 
     @Override
     public List<Vocabulary> getVocabularyByThai(String thai) {
-        List<Vocabulary> vocabulary = vocabularyRepository.findByThai(thai);
-        if (vocabulary.size() == 0) {
+        List<Vocabulary> vocabularies = vocabularyRepository.findByThai(thai);
+        if (vocabularies.size() == 0) {
             throw new VocabularyNotFoundException(thai);
         }
-        return vocabularyRepository.findByThai(thai);
+        return vocabularies;
     }
 }
