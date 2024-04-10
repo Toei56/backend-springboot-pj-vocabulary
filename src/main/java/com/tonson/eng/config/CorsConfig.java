@@ -9,6 +9,10 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/vocabulary").allowedMethods("GET");
+//        registry.addMapping("/path").allowedMethods("method", "method", "method");
+//        registry.addMapping("/**/*").allowedMethods("*"); ยอมรับทุก path ทุก methods
+//        registry.addMapping("/**"); ยอมรับทุก path ทุก methods ยกเว้น delete
+        registry.addMapping("/vocabulary").allowedMethods("GET", "POST", "PUT", "DELETE");
+        // registry.addMapping("/**");
     }
 }

@@ -10,6 +10,8 @@ public interface VocabularyService {
 
     List<Vocabulary> getAllVocabulary();
 
+    Optional<Vocabulary> getVocabularyById(Long id);
+
     Vocabulary createVocabulary(VocabularyRequest vocabularyRequest);
 
     Vocabulary updateVocabulary(VocabularyRequest vocabularyRequest, long id);

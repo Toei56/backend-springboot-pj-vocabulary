@@ -16,9 +16,9 @@ axios.get(vocabulary)
 
         eng.textContent = item.eng;  // เลือกเฉพาะค่า eng
         const thai = row.insertCell();
-        thai.textContent = item.thai; // เลือกเฉพาะค่า thai
+        thai.textContent = item.pronunciation; // เลือกเฉพาะค่า thai
         const pronunciation = row.insertCell();
-        pronunciation.textContent = item.pronunciation; // เลือกเฉพาะค่า pronunciation
+        pronunciation.textContent = item.thai; // เลือกเฉพาะค่า pronunciation
         
         const cellEdit = row.insertCell();
         const editLink = document.createElement('a');
@@ -37,3 +37,25 @@ axios.get(vocabulary)
     document.body.appendChild(table);
   })
   .catch(error => console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error));
+  // end axios api
+
+  
+
+  // popover
+document.querySelectorAll('[data-bs-toggle="popover"]')
+.forEach(popover => {
+  new bootstrap.Popover(popover)
+});
+
+// modal
+
+
+// java script
+
+
+// end java script
+// jquery
+$('.social a').prop('target','_blank');
+
+
+// end jquery

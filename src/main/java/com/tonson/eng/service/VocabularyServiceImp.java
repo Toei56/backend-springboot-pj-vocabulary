@@ -29,6 +29,15 @@ public class VocabularyServiceImp implements VocabularyService {
     }
 
     @Override
+    public Optional<Vocabulary> getVocabularyById(Long id) {
+        try {
+            return vocabularyRepository.findById(id);
+        } catch (Exception ex) {
+            throw new VocabularyNotFoundException(id);
+        }
+    }
+
+    @Override
     public Vocabulary createVocabulary(VocabularyRequest vocabularyRequest) {
         Vocabulary vocabulary = new Vocabulary();
         vocabulary

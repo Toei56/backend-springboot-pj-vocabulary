@@ -10,8 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/vocabulary")
 public class VocabularyController {
 
@@ -22,13 +24,18 @@ public class VocabularyController {
     }
 
     @GetMapping
-    public List<Vocabulary> getAllVacabulary() {
+    public List<Vocabulary> getAllVocabulary() {
         return vocabularyService.getAllVocabulary();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Vocabulary> getVocabularyById(@PathVariable long id) {
+        return vocabularyService.getVocabularyById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Vocabulary addVocabulary(@Valid VocabularyRequest vocabularyRequest, BindingResult bindingResult) {
+    public Vocabulary addVocabulary(@Valid @ModelAttribute VocabularyRequest vocabularyRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             bindingResult.getFieldErrors().forEach(fieldError -> {
                 throw new ValidationException(fieldError.getField() + " : " + fieldError.getDefaultMessage());

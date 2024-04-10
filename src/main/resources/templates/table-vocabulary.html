@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vocaburary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/table-vocabulary.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div >
+        <table id="myTable" class="table table-bordered mt-3 text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ประเภท</th>
+                    <th>คำศัพท์</th>
+                    <th>คำอ่าน</th>
+                    <th>คำแปล</th>
+                    <th>แก้ไข</th>
+                    <th>ลบ</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <a class="h4 text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                    <td>
+                        <a class="h4 text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- end table -->
+
+    <!-- modal new vocabulary -->
+    <div id="modalNewVocabulary" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">เพิ่มคำศัพท์ใหม่</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> 
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">ประเภทคำศัพท์</label>
+                            <div class="col-sm-8">
+                                <select  class="form-control" required>
+                                    <option value="">-</option>
+                                    <option value="คำนาม">คำนาม</option>
+                                    <option value="คำนำหน้าคำนาม">คำนำหน้าคำนาม</option>
+                                    <option value="คำสรรพนาม">คำสรรพนาม</option>
+                                    <option value="คำกริยา">คำกริยา</option>
+                                    <option value="คำกริยาวิเศษณ์">คำกริยาวิเศษณ์</option>
+                                    <option value="คำคุณศัพท์">คำคุณศัพท์</option>
+                                    <option value="คำบุพบท">คำบุพบท</option>
+                                    <option value="คำสันธาน">คำสันธาน</option>
+                                    <option value="คำอุทาน">คำอุทาน</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">คำศัพท์</label>
+                            <div class="col-sm-8">
+                                <input type="text" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">คำอ่าน</label>
+                            <div class="col-sm-8">
+                                <input type="text" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">คำแปล</label>
+                            <div class="col-sm-8">
+                                <input type="text" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">บันทึก</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/table-vocabulary.js"></script>
+    <script>
+    // รอ 5 วินาที
+    setTimeout(function() {
+        // ซ่อน Element ที่มี id เป็น "t"
+        document.getElementById("showMessage").style.display = "none";
+    }, 7000); // 5000 มิลลิวินาที = 5 วินาที -->
+    <!-- </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script> -->
+</body>
+
+</html>
