@@ -9,16 +9,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserRequest {
+public class UserRegisterResponse {
+
+    // mapper
 
     @NotEmpty
     @Size(min = 8, max = 20)
-    private String username;
+    private String email;
 
-    @NotEmpty
-    @Size(min = 8)
-    private String password;
-
-    @NotEmpty
-    private String role;
 }
