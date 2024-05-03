@@ -9,7 +9,7 @@ import com.tonson.eng.mapper.UserMapper;
 import com.tonson.eng.model.User;
 import com.tonson.eng.service.TokenService;
 import com.tonson.eng.service.UserService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.tonson.eng.util.SecurityUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,7 +18,6 @@ import java.util.Optional;
 public class UserBusiness {
 
     private final UserService userService;
-
     private final TokenService tokenService;
     private final UserMapper userMapper;
 
@@ -48,6 +47,23 @@ public class UserBusiness {
             throw UserException.loginFailPasswordIncorrect();
         }
 
+        return tokenService.Tokenize(user);
+    }
+
+    public String refreshToken() throws BaseException {
+        Optional<Long> opt = SecurityUtil.getCurrentUserId();
+        if (opt.isEmpty()) {
+            throw UserException.unauthorized();
+        }
+
+        Long userId = opt.get();
+
+        Optional<User> optUser = userService.findById(userId);
+        if (optUser.isEmpty()) {
+            throw UserException.notFound();
+        }
+
+        User user = optUser.get();
         return tokenService.Tokenize(user);
     }
 }

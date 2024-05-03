@@ -21,4 +21,6 @@ public class VocabularyRequest {
 
     @NotEmpty(message = "must not be empty")
     private String pronunciation;
+
+    private String note;
 }

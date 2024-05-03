@@ -47,7 +47,7 @@ spring:
     password: Tonpostgresql04
 
   jpa:
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
 
 server:
-  port: 1000
+  port: 1150

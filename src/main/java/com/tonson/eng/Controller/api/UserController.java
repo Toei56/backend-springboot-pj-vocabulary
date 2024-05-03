@@ -11,10 +11,7 @@ import com.tonson.eng.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/auth")
 @RestController
@@ -50,5 +47,11 @@ public class UserController {
         }
         String login = userBusiness.login(loginRequest);
         return ResponseEntity.ok(login);
+    }
+
+    @GetMapping("/refresh-token")
+    public ResponseEntity<String> refreshToken() throws BaseException {
+        String response = userBusiness.refreshToken();
+        return ResponseEntity.ok(response);
     }
 }

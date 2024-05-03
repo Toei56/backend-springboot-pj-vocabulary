@@ -13,5 +13,7 @@ public interface UserService {
 
     Optional<User> findByEmail(String email);
 
+    Optional<User> findById(Long id);
+
     Boolean matchPassword(String rawPassword, String encodedPassword);
 }
