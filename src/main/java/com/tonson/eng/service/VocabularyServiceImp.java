@@ -44,7 +44,8 @@ public class VocabularyServiceImp implements VocabularyService {
                 .setEng(vocabularyRequest.getEng())
                 .setThai(vocabularyRequest.getThai())
                 .setType(vocabularyRequest.getType())
-                .setPronunciation(vocabularyRequest.getPronunciation());
+                .setPronunciation(vocabularyRequest.getPronunciation())
+                .setNote(vocabularyRequest.getNote());
         return vocabularyRepository.save(vocabulary);
     }
 
@@ -58,7 +59,8 @@ public class VocabularyServiceImp implements VocabularyService {
                     .setEng(vocabularyRequest.getEng())
                     .setThai(vocabularyRequest.getThai())
                     .setType(vocabularyRequest.getType())
-                    .setPronunciation(vocabularyRequest.getPronunciation());
+                    .setPronunciation(vocabularyRequest.getPronunciation())
+                    .setNote(vocabularyRequest.getNote());
             return vocabularyRepository.save(existingVocabulary);
         }
         throw new VocabularyNotFoundException(id);

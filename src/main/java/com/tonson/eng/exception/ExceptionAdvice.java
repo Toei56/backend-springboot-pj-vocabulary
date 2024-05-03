@@ -29,12 +29,12 @@ public class ExceptionAdvice {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<ErrorResponse> handleUserDuplicate(UserDuplicateException ex) {
+    @ExceptionHandler(BaseException.class)
+    public ResponseEntity<ErrorResponse> handleUserDuplicate(BaseException ex) {
         ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setStatus(HttpStatus.EXPECTATION_FAILED.value());
         errorResponse.setError(ex.getMessage());
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorResponse, HttpStatus.EXPECTATION_FAILED);
     }
 
     @Getter

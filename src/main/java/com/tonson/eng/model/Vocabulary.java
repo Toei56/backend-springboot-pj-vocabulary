@@ -29,4 +29,7 @@ public class Vocabulary {
 
     @Column(nullable = false)
     private String pronunciation;
+
+    @Column
+    private String note;
 }
